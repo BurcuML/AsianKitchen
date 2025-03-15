@@ -1,3 +1,4 @@
+//use map() over an array of objects
 const menu = [
   {
     id: 1,
@@ -84,14 +85,9 @@ const menu = [
 
 const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
-sectionCenter.classList.add("photo","menu-title","menu-text","menu-item");
-// load items
-document.addEventListener("DOMContentLoaded", function () {
-  MenuItems(menu);
-});
 
-function MenuItems(menuItems) {
-  let displayMenu = menuItems.map((item) => {
+
+  let displayMenu = menu.map((item) => {
     return `<div class="menu-item">
           <img src=${item.img} alt=${item.title} class="photo" />
           <div class="item-info">
@@ -103,12 +99,14 @@ function MenuItems(menuItems) {
           </div>
         </div>`;
   });
+  
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
-}
 
-function menuButtons(){
+
+
   let displayCategories = menu.reduce((values, item) => {
-    
+/*     if(){
+
+    } */
   });
-}
