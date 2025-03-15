@@ -86,8 +86,8 @@ const menu = [
 const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
 
-
-let displayMenu = menu.map((item) => {
+const menuList = () =>{
+  let displayMenu = menu.map((item) => {
   return `<div class="menu-items col-lg-6 col-sm-12">
           <img src=${item.img} alt=${item.title} class="photo" />          
            <div class="menu-info">
@@ -105,6 +105,9 @@ let displayMenu = menu.map((item) => {
 
 displayMenu = displayMenu.join("");
 sectionCenter.innerHTML = displayMenu;
+}
+
+menuList();
 
 let displayCategories = menu.reduce((acc, item) => {
   let category = item.category;
@@ -133,3 +136,16 @@ Metot tarafından döndürülen tek değer aynı zamanda bir nesne dizisi olabil
 */
 
 btnContainer.innerHTML = displayCategories;
+
+//Category Filter
+const filterBtns = document.querySelectorAll(".btn");
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const category = e.currentTarget.dataset.id;
+    const menuCategory = menu.filter((menuItem) => {
+      if (menuItem.category === category) {
+        return menuItem;
+      }
+    });
+  });
+});
