@@ -87,26 +87,29 @@ const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
 
 
-  let displayMenu = menu.map((item) => {
-    return `<div class="menu-item">
-          <img src=${item.img} alt=${item.title} class="photo" />
-          <div class="item-info">
+let displayMenu = menu.map((item) => {
+  return `<div class="menu-items col-lg-6 col-sm-12">
+          <img src=${item.img} alt=${item.title} class="photo" />          
+           <div class="menu-info">
+            <div class="menu-title">
               <h4>${item.title}</h4>
               <h4 class="price">$${item.price}</h4>
-            <p class="item-text">
+            </div>
+            <div class="menu-text">
               ${item.desc}
-            </p>
+            </div>
+           </div>
           </div>
-        </div>`;
-  });
-  
-  displayMenu = displayMenu.join("");
-  sectionCenter.innerHTML = displayMenu;
+        `;
+});
+
+displayMenu = displayMenu.join("");
+sectionCenter.innerHTML = displayMenu;
 
 
 
-  let displayCategories = menu.reduce((values, item) => {
-/*     if(){
+let displayCategories = menu.reduce((values, item) => {
 
-    } */
-  });
+});
+
+btnContainer.innerHTML = displayCategories;
