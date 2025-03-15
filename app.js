@@ -108,8 +108,25 @@ sectionCenter.innerHTML = displayMenu;
 
 
 
-let displayCategories = menu.reduce((values, item) => {
 
-});
+let displayCategories = menu.reduce((acc, item) => {
+  let category = item.category;
+  if (!acc.includes(category)) {
+    acc.push(category);
+  }
+  return acc;
+}, ["All"]).join("");
+
+/* 
+reduce() Metodunu Ne Zaman Kullanmalı?
+Bir diziniz üzerinde yineleme yaparak tek bir değer döndürmeniz gerektiğinde reduce() metodu önerilir.
+
+Şunları içerir:
+
+-Değerlerinizi tek bir değerde özetlemek
+-Benzer öğeleri birlikte gruplamak
+-Bir diziden yinelenenleri kaldırmak
+Metot tarafından döndürülen tek değer aynı zamanda bir nesne dizisi olabilir, bu nedenle birden çok değer içerebilir.
+*/
 
 btnContainer.innerHTML = displayCategories;
