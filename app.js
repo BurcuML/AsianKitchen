@@ -106,16 +106,19 @@ let displayMenu = menu.map((item) => {
 displayMenu = displayMenu.join("");
 sectionCenter.innerHTML = displayMenu;
 
-
-
-
 let displayCategories = menu.reduce((acc, item) => {
   let category = item.category;
   if (!acc.includes(category)) {
     acc.push(category);
   }
-  return acc;
-}, ["All"]).join("");
+   return acc;
+}, ["All"]).map(category => {
+  return `<div class="btn-container">
+           <button type="button" class="btn-item btn-outline-dark btn" data-id=${category}>
+            ${category}
+          </button>
+          </div>`;
+}).join("");
 
 /* 
 reduce() Metodunu Ne Zaman Kullanmalı?
