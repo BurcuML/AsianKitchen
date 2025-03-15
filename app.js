@@ -147,5 +147,25 @@ filterBtns.forEach((btn) => {
         return menuItem;
       }
     });
+    if (category === "All") {
+      menuList();
+    } 
+    else {
+      displayMenu = menuCategory.map((item) => {
+        return `<div class="menu-items col-lg-6 col-sm-12">
+          <img src=${item.img} alt=${item.title} class="photo" />          
+           <div class="menu-info">
+            <div class="menu-title">
+              <h4>${item.title}</h4>
+              <h4 class="price">$${item.price}</h4>
+            </div>
+            <div class="menu-text">
+              ${item.desc}
+            </div>
+           </div>
+          </div>`;
+      }).join("");
+      sectionCenter.innerHTML = displayMenu;
+    }
   });
 });
