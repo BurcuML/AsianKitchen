@@ -141,7 +141,27 @@ btnContainer.innerHTML = displayCategories;
 const filterBtns = document.querySelectorAll(".btn");
 filterBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    const category = e.currentTarget.dataset.id;
+    const category = e.currentTarget.dataset.id;   /* Bu kod satırı, bir HTML elementinin data-id özelliğini alarak category değişkenine atar. Daha detaylı açıklamak gerekirse:
+    
+    "e.currentTarget: Bu, olayın (event) tetiklendiği HTML elementini temsil eder. Bu durumda, bir butona tıklama olayıdır.
+    
+    "dataset.id": HTML elementinin data-id özelliğine erişir. Örneğin, <button data-id="breakfast"> gibi bir butonunuz varsa, dataset.id bu butonun data-id değerini döndürür.
+    
+    Bu kod, tıklanan butonun hangi kategoriye ait olduğunu belirlemek için kullanılır. Örneğin, "breakfast", "lunch" veya "dinner" gibi kategoriler olabilir.
+    
+    Örnek:
+    <button class="btn" data-id="breakfast">Breakfast</button>
+    <button class="btn" data-id="lunch">Lunch</button>
+    <button class="btn" data-id="dinner">Dinner</button>
+    
+    Bu butonlardan birine tıkladığınızda, category değişkeni tıklanan butonun data-id değerini alır.
+    
+    btn.addEventListener("click", (e) => {
+      const category = e.currentTarget.dataset.id;
+      console.log(category); // Örneğin, "breakfast" yazdırır
+    });
+    Bu sayede, tıklanan butona göre ilgili kategoriye ait menü öğelerini filtreleyebilirsiniz.*/
+
     const menuCategory = menu.filter((menuItem) => {
       if (menuItem.category === category) {
         return menuItem;
